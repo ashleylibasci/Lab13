@@ -50,7 +50,6 @@ void callback(char *topic, byte *payload, unsigned int length)
   }
   else if (String(p).equals("0"))
   {
-    
   }
   else
   {
