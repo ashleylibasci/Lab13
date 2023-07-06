@@ -41,18 +41,14 @@ void callback(char *topic, byte *payload, unsigned int length)
   char p[length + 1];
   memcpy(p, payload, length);
   p[length] = NULL;
+  String s = p;
+  double value = s.toFloat();
   Serial.printf("%s", p);
   Serial.println();
-
-  if (String(p).equals("1"))
-  {
-    Serial.println("1");
-  }
-  else if (String(p).equals("0"))
-  {
-  }
-  else
-  {
-    Serial.println(p);
-  }
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0, 0);
+  display.println(p);
+  display.display();
 }
